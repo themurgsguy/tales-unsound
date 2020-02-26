@@ -1,0 +1,15 @@
+@mixin font-face ($family, $font, $weight:normal, $style:normal) {
+
+  // OPTIMIZE: For now this only works with importing .otf fonts, should
+  // adapt to be able to import other types as well.
+
+  // NOTE: Just realized I didn't even need this since Montserrat is
+  // available on Google fonts.... FUCK!!!
+
+  @font-face {
+    font-family: $family;
+    src: url("/static/fonts/#{$family}-#{$font}.otf") format("opentype");
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}

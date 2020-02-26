@@ -1,0 +1,11 @@
+.outback {
+  height: 100vh;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    height: 100%;
+  }
+}
