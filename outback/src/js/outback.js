@@ -13,16 +13,16 @@ if (document.querySelector('.outback')) {
   });
 
   function handlePrompt () {
-    const expression = $('.prompt').val();
+    const command = $('.prompt').val();
 
-    logExpression(expression);
+    logCommand(command);
     logResponse('A placeholder message will have to suffice for now.');
   }
 
-  function logExpression (expression) {
+  function logCommand (command) {
     let entry = $('<p></p>');
-    entry.append(expression);
-    entry.addClass('text-muted pt-3 mb-2');
+    entry.append(command);
+    entry.addClass('cmd-log');
 
     $('.feed').append(entry);
   }
@@ -30,6 +30,7 @@ if (document.querySelector('.outback')) {
   function logResponse (response) {
     let entry = $('<p></p>');
     entry.append(response);
+    entry.addClass('resp-log');
 
     $('.feed').append(entry);
   }
