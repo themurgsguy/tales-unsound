@@ -83,3 +83,4 @@ Basta ir ao link:
 ```
 localhost:8000/
 ```
+Se tudo correr com deve ser, deves ver uma landing page todo pipi do django.
