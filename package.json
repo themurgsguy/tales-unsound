@@ -1,0 +1,23 @@
+{
+  "name": "tales_unsound",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w"
+  },
+  "author": "Hexel Apes",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "node-sass": "^4.13.1",
+    "rollup": "^1.31.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-postcss": "^2.1.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1"
+  }
+}

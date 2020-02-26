@@ -1,0 +1,22 @@
+.outback {
+  height: 100vh;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    height: 100%;
+  }
+}
+
+.cmd-log {
+  padding-top: 1em;
+  margin-bottom: 0.5em;
+  font-size: 0.8em;
+  color: #777;
+}
+
+.resp-log {
+  font-size: 1em;
+}

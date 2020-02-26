@@ -1,9 +1,25 @@
 {% extends 'outback/base.html' %}
 
 {% block content %}
-  <section>
-    <p>Hello Sailor!</p>
-    <h1>{{space.name}}</h1>
-    <p>{{space.description}}</p>
-  </section>
+  <div class="container border">
+    <header class="row">
+      <div class="col">
+        <p>{{space.name}}</p>
+      </div>
+    </header>
+
+    <main class="row mt-auto">
+      <div class="feed col">
+        <p>{{space.description}}</p>
+      </div>
+    </main>
+
+    <footer class="row mt-5">
+      <form class="console col" autocomplete="off">
+        <div class="from-group">
+          <input class="form-control prompt" type="text" name="prompt" autofocus>
+        </div>
+      </form>
+    </footer>
+  </div>
 {% endblock %}
