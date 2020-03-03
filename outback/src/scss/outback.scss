@@ -12,11 +12,16 @@
 
 .cmd-log {
   padding-top: 1em;
-  margin-bottom: 0.5em;
-  font-size: 0.8em;
-  color: #777;
+  margin-bottom: 0;
+  color: #a0a0a0;
 }
 
 .resp-log {
+  // font-size: 1em;
+}
+
+.prompt {
+  height: calc(1.5em + 0.75em + 2px);
+  padding: 0.375em 0;
   font-size: 1em;
 }

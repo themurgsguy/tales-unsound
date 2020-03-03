@@ -1,37 +1,61 @@
 if (document.querySelector('.outback')) {
 
   $(document).ready(function () {
-    console.log('outback.app - checkin');
+    const token = $('input[name="csrfmiddlewaretoken"]').val();
 
-    $('.console').on('submit', function (e) {
+    $('.terminal').on('submit', function (e) {
         e.preventDefault();
         e.stopPropagation();
 
-        handlePrompt();
+        handlePrompt(token);
         $(this)[0].reset();
     });
   });
 
-  function handlePrompt () {
-    const command = $('.prompt').val();
+  function handlePrompt (token) {
+    const command = $('.prompt').val().toLowerCase();
 
-    logCommand(command);
-    logResponse('A placeholder message will have to suffice for now.');
+    logResponse(command, 'cmd-log');
+
+    if(/move/g.test(command)) {
+      const current_space = $('.place').html();
+      const new_space = command.split('to')[1].trim();
+
+      move(token, current_space, new_space);
+      return;
+    }
+    logResponse("I don't quite get what your saying.", 'resp-log');
   }
 
-  function logCommand (command) {
-    let entry = $('<p></p>');
-    entry.append(command);
-    entry.addClass('cmd-log');
-
-    $('.feed').append(entry);
+  async function move (token, from, to) {
+    const request = {
+      'csrfmiddlewaretoken': token,
+      'from': from,
+      'to': to
+    }
+    try {
+      const response = await $.ajax({
+        url: window.location,
+        type: 'post',
+        data: request,
+        dataType: 'json'
+      });
+      updateSpace(response);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  function logResponse (response) {
+  function updateSpace (response) {
+    $('.place').html(response.name);
+    logResponse(response.description, 'resp-log');
+  }
+
+  function logResponse (response, style) {
     let entry = $('<p></p>');
     entry.append(response);
-    entry.addClass('resp-log');
+    entry.addClass(style);
 
-    $('.feed').append(entry);
+    $('.backlog').append(entry);
   }
 }
