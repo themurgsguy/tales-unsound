@@ -9,11 +9,13 @@ from django.views.generic import View
 from .models import Place
 
 
-class ExtendedEncoder(DjangoJSONEncoder):
-    def default(self, o):
-        if isinstance(o, Model):
-            return model_to_dict(o)
-        return Super().default(o)
+# REVIEW: Not sure if I'm gonna need this at this point.
+#
+# class ExtendedEncoder(DjangoJSONEncoder):
+#     def default(self, o):
+#         if isinstance(o, Model):
+#             return model_to_dict(o)
+#         return Super().default(o)
 
 
 class Outback(View):
@@ -31,7 +33,7 @@ class Outback(View):
             response = {
                 'name': requested_place.name,
                 'description': requested_place.description,
-                'exits': [e.description for e in requested_place.exit_set.all()]
+                'exits': ' '.join([e.description for e in requested_place.exit_set.all()])
             }
             return JsonResponse(response)
         except:

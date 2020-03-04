@@ -49,6 +49,7 @@ if (document.querySelector('.outback')) {
   function updateSpace (response) {
     $('.place').html(response.name);
     logResponse(response.description, 'resp-log');
+    logResponse(response.exits, 'resp-log');
   }
 
   function logResponse (response, style) {
