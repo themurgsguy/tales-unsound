@@ -13,7 +13,7 @@
         <p>{{place.description}}</p>
         <p>
           {% for exit in place.exit_set.all %}
-            <span>{{exit.description}}</span>
+            {{exit.description}}
           {% endfor %}
         </p>
       </div>
