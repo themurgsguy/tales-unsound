@@ -4,18 +4,16 @@
   <div class="container">
     <header class="row justify-content-center">
       <div class="col-9">
-        <p class="place">{{place.name}}</p>
+        <p class="name">
+          {# {{place.name}} #}
+          void
+        </p>
       </div>
     </header>
 
     <main class="row mt-auto justify-content-center">
       <div class="backlog col-9">
-        <p>{{place.description}}</p>
-        <p>
-          {% for exit in place.exit_set.all %}
-            {{exit.description}}
-          {% endfor %}
-        </p>
+        {# log is injected here through js #}
       </div>
     </main>
 

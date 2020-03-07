@@ -4,5 +4,6 @@ from . import views
 
 app_name = 'outback'
 urlpatterns = [
-    path('', views.outback, name='outback'),
+    path('', views.OutbackView.as_view()),
+    path('place/<int:place_id>', views.PlaceView.as_view(), name='place')
 ]
