@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <terminal></terminal>
+    <terminal/>
   </div>
 </template>
 
@@ -16,12 +16,18 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/assets/scss/common.scss";
+@import "@/assets/scss/common";
+
+html,
+body {
+  background-color: $bg-color;
+}
 
 #app {
   font-family: $font-stack;
-  font-size: 1.5em; // 24px
+  font-size: 1.375em; // 20px
+  font-weight: 500;
   line-height: 1.5;
-  height: 100vh;
+  color: $text-color;
 }
 </style>
