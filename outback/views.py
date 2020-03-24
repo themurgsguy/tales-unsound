@@ -5,6 +5,8 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.db.models import Model
 from django.http import JsonResponse
 from django.views.generic import View, TemplateView
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
 from .models import Place
 
@@ -46,21 +48,27 @@ class OutbackView(TemplateView):
     template_name = 'outback/index.html'
 
 
+# @method_decorator(csrf_exempt, name="dispatch")
 class PlaceView(View):
     http_method_name = ['get']
 
     def get(self, request, place_id):
-
         try:
-            place = get_object_or_404(Place, id=place_id)
+            place = Place.objects.get(id=place_id)
+
+            exits = place.exits.all()
+            exit_list = [{'id': e.id, 'name': e.name, 'description': e.description} for e in exits]
+
             response = {
+                'id': place.id,
                 'name': place.name,
                 'description': place.description,
-                'exits': ' '.join([e.description for e in place.exit_set.all()])
+                'exits': exit_list
             }
-            return JsonResponse(response)
-        except:
+        except Place.DoesNotExist:
             response = {
-                'description': 'That space does not existe'
+                'id': 0,
+                'name': 'none',
+                'description': 'none'
             }
-            return JsonResponse(response)
+        return JsonResponse(response)

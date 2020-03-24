@@ -63,6 +63,8 @@ export default {
         this.$store.dispatch('fetchPlace', placeId)
         const description = this.$store.getters.placeDescription
         const exits = this.$store.getters.exitDescriptions.join(' ')
+        console.log(description)
+        console.log(exits)
         this.updateFeed(description)
         this.updateFeed(exits)
     },
