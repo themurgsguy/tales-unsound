@@ -56,8 +56,8 @@ class PlaceView(View):
         try:
             place = Place.objects.get(id=place_id)
 
-            exits = place.exits.all()
-            exit_list = [{'id': e.id, 'name': e.name, 'description': e.description} for e in exits]
+            exits = place.exit_set.all()
+            exit_list = [{'id': e.destination.id, 'name': e.destination.name, 'description': e.description} for e in exits]
 
             response = {
                 'id': place.id,

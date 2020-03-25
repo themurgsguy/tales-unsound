@@ -4,7 +4,7 @@ import { $fetch } from '@/plugins/fetch'
 
 Vue.use(Vuex)
 
-// const ExitNotFound = { id: 0, name: null, description: null}
+const ExitNotFound = { id: 0, name: null, description: null}
 
 // const places = [
 //   {
@@ -74,6 +74,7 @@ export default new Vuex.Store({
     async fetchPlace ({ commit }, placeId) {
       try {
         const newPlace = await $fetch(`/theoutback/place/${placeId}`)
+        console.log('tried to fetch place: ', placeId)
         commit('place', newPlace)
       } catch (e) {
         console.error(`fetchPlace: ${e.message}`)
@@ -88,10 +89,10 @@ export default new Vuex.Store({
       return state.exits.map(exit => exit.description)
     },
     exitByName: state => name => {
-      return state.exits.find(exit => exit.name === name)
+      return state.exits.find(exit => exit.name === name) || ExitNotFound
     },
     exitById: state => id => {
-      return state.exits.find(exit => exit.id === id)
+      return state.exits.find(exit => exit.id === id) || ExitNotFound
     }
   }
 })

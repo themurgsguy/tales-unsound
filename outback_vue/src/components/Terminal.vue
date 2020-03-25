@@ -52,6 +52,7 @@ export default {
           return
         }
         const newPlaceId = this.$store.getters.exitByName(action.object).id
+        console.log('newPlaceId: ', newPlaceId)
         if (!newPlaceId) {
           this.updateFeed(`I don't see any ${action.object} here.`)
           return
@@ -59,14 +60,14 @@ export default {
         this.fetchPlace(newPlaceId)
       }
     },
-    fetchPlace (placeId) {
-        this.$store.dispatch('fetchPlace', placeId)
-        const description = this.$store.getters.placeDescription
-        const exits = this.$store.getters.exitDescriptions.join(' ')
-        console.log(description)
-        console.log(exits)
-        this.updateFeed(description)
-        this.updateFeed(exits)
+    async fetchPlace (placeId) {
+      await this.$store.dispatch('fetchPlace', placeId)
+
+      const description = this.$store.getters.placeDescription
+      const exits = this.$store.getters.exitDescriptions.join(' ')
+
+      this.updateFeed(description)
+      this.updateFeed(exits)
     },
     async updateFeed (text, style) {
       await this.backlog.push({ text, style })
