@@ -1,5 +1,24 @@
 # Tales Unsound
 
+Tales Unsound is this idea I had for an experimental interactive meta-fiction, that would play much like a classic text adventure game would, but with sound and a little more ambience thrown in the mix.
+
+### Theme
+
+The story I had envisioned for it started with the image of this 8 year old kid, departing from his tiny little planet, in a spaceship he made out of used coke cans, on some kind of journey to visit the stars.
+
+A compelling start to a kids book maybe, but what if the space he had flown into was nothing like the space you'd find in a kids book. What if it was more like actual space, and it was cold, and harsh, and he got swung around a lot in his tiny little spaceship.
+
+What if, most of the time he was out there he felt lost, and scared, and didn't have the slightest clue of what to do or where to go.
+
+And it was only on the rarest of occasions, when he'd stumble upon other travellers just like him, and spend time roasting marshmallows together over a campfire in the deep dark woods, that he'd once again remember. That hint of nostalgia, that little bit of courage, and the thirst for more adventure.
+
+In a way, this would be interesting to explore as a literal story, but doesn't it work great as a metaphor for life instead? Aren't we all deep down just 8 year old kids lost in space? Staggering around in spaceships made of tinfoil, not really knowing where we're supposed to go, or what we're meant to do?
+
+That's the kind of story I'm trying to get at here. That's the punchline.
+
+
+# Install Project
+
 ## 1. Install
 Em primeiro lugar vai ser preciso instalar o `python3` e o `virtualenv`, uma ferrementa para
 criar maquinhas virtuais de python. A gente corre os projectos em maquinha virtual
